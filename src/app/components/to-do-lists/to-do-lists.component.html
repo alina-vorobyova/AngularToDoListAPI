@@ -1,0 +1,31 @@
+<div class="row mt-5">
+    <ng-container *ngFor="let toDoList of toDoLists">
+        <div class="col-md-6">
+            <div class="card" [id]="toDoList.id">
+                <div class="card-header font-weight-bold" [style.background-color]="toDoList.color">
+                    {{toDoList.title}}
+                </div>
+                <ul class="list-group list-group-flush" *ngFor="let todoitem of toDoList.toDoItems">
+                    <li class="list-group-item" data-toggle="collapse" [id]="todoitem.id">
+                        <button class="btn" type="button" data-toggle="collapse" [attr.data-target]="'#' + 'a' +  todoitem.id" aria-expanded="false"  [attr.aria-controls]="'a' + todoitem.id">
+                            {{todoitem.title}}
+                        </button>
+                        <div class="collapse" [id]="'a' + todoitem.id">
+                            <div class="card card-body my-1">
+                                <p><b>Task:</b></p>
+                                <p class="my-2">
+                                    {{todoitem.text}}
+                                </p>
+                                <p>
+                                    <b>Deadline:</b> {{todoitem.deadline}}
+                                </p>
+                            </div>
+                          </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </ng-container>
+
+</div>
+
