@@ -4,12 +4,12 @@
             <div class="card" [id]="toDoList.id">
                 <div class="card-header font-weight-bold" [style.background-color]="toDoList.color">
                     {{toDoList.title}}
+                    <i class="fas fa-plus pr-0 mr-0 float-right"></i>
                 </div>
                 <ul class="list-group list-group-flush" *ngFor="let todoitem of toDoList.toDoItems">
-                    <li class="list-group-item" data-toggle="collapse" [id]="todoitem.id">
-                        <button class="btn" type="button" data-toggle="collapse" [attr.data-target]="'#' + 'a' +  todoitem.id" aria-expanded="false"  [attr.aria-controls]="'a' + todoitem.id">
-                            {{todoitem.title}}
-                        </button>
+                    <li class="list-group-item todolist" data-toggle="collapse" data-toggle="collapse" [attr.data-target]="'#' + 'a' +  todoitem.id" aria-expanded="false"  [attr.aria-controls]="'a' + todoitem.id">
+                            {{todoitem.title}} 
+                        <i class="fas fa-chevron-down pr-0 mr-0 float-right"></i>
                         <div class="collapse" [id]="'a' + todoitem.id">
                             <div class="card card-body my-1">
                                 <p><b>Task:</b></p>
@@ -19,6 +19,7 @@
                                 <p>
                                     <b>Deadline:</b> {{todoitem.deadline}}
                                 </p>
+                                <p class="text-danger" (click)="deleteTaskClick(todoitem.id)">Delete this task</p>
                             </div>
                           </div>
                     </li>
