@@ -16,10 +16,13 @@ export class AddToDoListComponent implements OnInit {
 
   toDoListForm: FormGroup;
 
+  get title() { return this.toDoListForm.get('title') as FormControl }
+  get color() { return this.toDoListForm.get('color') as FormControl }
+
   ngOnInit() {
     this.toDoListForm = new FormGroup({
       title: new FormControl(null, [Validators.required, Validators.maxLength(100)]),
-      color: new FormControl(null, [Validators.maxLength(100)])
+      color: new FormControl(null, [Validators.pattern("^#[0-9,a-f,A-F]{6}$")])
     });
   }
 

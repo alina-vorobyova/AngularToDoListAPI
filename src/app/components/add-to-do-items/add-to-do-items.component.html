@@ -1,1 +1,33 @@
-<p>add-to-do-items works!</p>
+<div class="col-md-6">
+    <form [formGroup]="toDoItemForm" (ngSubmit)="onFormSubmit()">
+      <div class="form-group">
+        <label for="title">ToDoItem Title</label>
+        <input formControlName="title" type="text" class="form-control" id="title" placeholder="Enter todolist title">
+        <span *ngIf="title.touched && title.errors?.required" class="text-danger">Title is required!</span>
+        <span *ngIf="title.touched && title.errors?.maxlength" class="text-danger">Title length must be less than 100 symbols!</span>
+      </div>
+      <div class="form-group">
+        <label for="text">Enter Task</label>
+        <textarea formControlName="text" type="text" class="form-control" id="text" rows="5" cols="5">
+        </textarea>
+      </div>
+      <div class="form-group">
+        <label for="deadline">Select deadline</label>
+        <input formControlName="deadline" type="date" class="form-control" id="deadline">>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+
+    <div class="col-md-6">
+      <p>{{toDoItemForm.status}}</p>
+      <hr>
+      <pre>{{title.errors | json}}</pre>
+      <pre>{{text.errors | json}}</pre>
+      <pre>{{deadline.errors | json}}</pre>
+
+
+      <hr>
+      <pre>{{toDoItemForm.value | json}}</pre>
+  </div>

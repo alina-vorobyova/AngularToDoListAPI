@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: "toDoLists",  component: ToDoListsComponent},
   {path: "toDoItems", component: ToDoItemsComponent},
   {path: "addToDoList" , component: AddToDoListComponent},
-  {path: "addToDoItems" , component: AddToDoItemsComponent},
+  {path: "addToDoItems/:listid" , component: AddToDoItemsComponent},
   {path: "**", component: ErrorComponent}
 ];
 

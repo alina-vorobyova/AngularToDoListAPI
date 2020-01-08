@@ -15,18 +15,21 @@ export class ToDoListsComponent implements OnInit {
 
   constructor(private toDoListService: ToDoListService, private toDoItemService: ToDoItemService) { }
 
- ngOnInit() {
+  ngOnInit() {
     this.loadLists();
   }
 
-  async deleteTaskClick(id: number)
-  {
-      await this.toDoItemService.deleteToDoItem(id);
+  async deleteTaskClick(id: number) {
+    await this.toDoItemService.deleteToDoItem(id);
+    await this.loadLists();
+  }
+
+  async DeleteListClick(id: number) {
+      await this.toDoListService.deleteToDoList(id);
       await this.loadLists();
   }
 
-  async loadLists()
-  {
+  async loadLists() {
     try {
       this.toDoLists = await this.toDoListService.getAllToDoLists();
       console.log(this.toDoLists);
@@ -35,4 +38,6 @@ export class ToDoListsComponent implements OnInit {
       console.log(error);
     }
   }
+
+  
 }
