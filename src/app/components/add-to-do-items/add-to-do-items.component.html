@@ -13,7 +13,11 @@
       </div>
       <div class="form-group">
         <label for="deadline">Select deadline</label>
-        <input formControlName="deadline" type="date" class="form-control" id="deadline">>
+        <input formControlName="deadline" type="date" class="form-control" id="deadline">
+      </div>
+      <div class="form-group">
+        <label for="time">Select deadline</label>
+        <input formControlName="time" type="time" class="form-control" id="time">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
@@ -26,6 +30,7 @@
       <pre>{{title.errors | json}}</pre>
       <pre>{{text.errors | json}}</pre>
       <pre>{{deadline.errors | json}}</pre>
+      <pre>{{time.errors | json}}</pre>
 
 
       <hr>
