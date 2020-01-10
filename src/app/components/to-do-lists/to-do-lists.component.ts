@@ -12,7 +12,7 @@ import { ToDoItemService } from 'src/app/services/to-do-item.service';
 export class ToDoListsComponent implements OnInit {
 
   toDoLists = Array<ToDoList>();
-
+  
   constructor(private toDoListService: ToDoListService, private toDoItemService: ToDoItemService) { }
 
   ngOnInit() {
