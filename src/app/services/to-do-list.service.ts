@@ -16,6 +16,9 @@ export class ToDoListService {
     return this.httpClient.get<Array<ToDoList>>(`${this.apiUrl}/todolist`).toPromise();
   }
 
+  getListById(id: number) : Promise<ToDoList> {
+    return this.httpClient.get<ToDoList>(`${this.apiUrl}/todolist/${id}`).toPromise();
+  }
 
   createToDoList(todolist: ToDoList) : Promise<ToDoList> {
     return this.httpClient.post<ToDoList>(`${this.apiUrl}/todolist`, todolist).toPromise();

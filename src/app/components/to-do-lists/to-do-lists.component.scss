@@ -3,9 +3,13 @@ li.todolist:hover {
 }
 
 i.fa-trash  {
-    width: 10%;
+    width: 5%;
 }
 
 i.fa-plus {
     padding-left: 10%;
+}
+
+.fa-trash:hover, .fa-edit:hover, .fa-plus:hover {
+    cursor: pointer;
 }

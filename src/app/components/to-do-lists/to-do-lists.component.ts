@@ -29,6 +29,7 @@ export class ToDoListsComponent implements OnInit {
       await this.loadLists();
   }
 
+
   async loadLists() {
     try {
       this.toDoLists = await this.toDoListService.getAllToDoLists();
